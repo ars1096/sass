@@ -1,0 +1,188 @@
+/*$color: red;
+body{
+  background-color: red;
+
+}*/
+
+@import "colores";
+
+
+
+@mixin border-radius($size){
+  $borde: border-radius;
+  -webkit-#{$borde}: $size;
+  -moz-#{$borde}: $size;
+  #{$borde}: $size;
+}
+
+@mixin section($size){
+  margin: 0 0 20px 0;
+  font-family: Jubilat , Georgia ,serif;
+  font-size: $size;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+
+
+  color: $color-primary-1;
+
+}
+
+  header[role = "banner"]{
+    margin: 10px 0 20px 0;
+    height: 120px;
+    border: {
+      bottom: 4px solid $color-primary-4;
+
+    }
+
+    background: {
+
+      color: $color-primary-2;
+      size: 120px 120px;
+      image: url("imgs/logo.png");
+      repeat: no-repeat;
+      position: top left;
+    }
+
+    h1 {
+      line-height: 1;
+      margin: 20px 0;
+      text-transform: uppercase;
+      padding: 20px 0 0 200px;
+      font {
+        size: 3em;
+        family: "Juice ITC";
+        weight: bold;
+      }
+
+    }
+
+      nav {
+        padding-left: 200px;
+
+        a {
+
+          margin-left: 10px;
+          padding: 4px 6px;
+          font-weight: bold;
+          text-decoration: none;
+          color: white;
+          background: $color-primary-3;
+          text-transform: uppercase;
+          @include border-radius(6px);
+
+          &:hover {
+            color: $rgba-primary-1;
+            background: $rgba-primary-4;
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+  .main {
+    margin: 10px 31% 15px 10%;
+  }
+
+  .izq {
+    margin-right: 10px;
+    float: right;
+    width: 30%;
+    background: #CCF27E;
+    color: #5F8D02;
+  }
+
+  section{
+    h2{
+      @include section(2em);
+
+    }
+
+    h3{
+      @include section(20px);
+
+
+      }
+
+     li{
+       margin: 10px 10px;
+     }
+
+    &.secondary{
+      ul{
+        list-style-type: none;
+
+        li{
+          clear: both;
+          height: 90px;
+
+          img{
+            display: block;
+            float: left;
+            width: 30%;
+
+            @include border-radius(10px);
+          }
+
+          div{
+            float: right;
+            width: 65%;
+
+            a{
+              background: $violet;
+              color: $darkgreen;
+              text-decoration: none;
+
+              &:hover h4{
+                color: $green;
+                background:$darkgreen;
+                @include border-radius(6px);
+              }
+
+            }
+
+          }
+
+          &:last-of-type{
+            margin-bottom: 30px;
+          }
+
+
+          @each $social in (facebook,twitter,pepe){
+            &##{$social}{
+              margin: 0 20px;
+              max-width: 64px;
+              opacity: .3;
+              background: no-repeat url("imgs/#{$social}_64.png");
+              &:hover{
+                opacity: 0.7;
+              }
+            }
+
+          }
+
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+
+
